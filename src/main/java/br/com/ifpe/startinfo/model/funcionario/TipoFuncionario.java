@@ -1,3 +1,4 @@
+
 package br.com.ifpe.startinfo.model.funcionario;
 
 import com.fasterxml.jackson.annotation.JsonValue;

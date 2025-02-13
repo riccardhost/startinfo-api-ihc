@@ -1,5 +1,5 @@
-package br.com.ifpe.startinfo.api.funcionario;
 
+package br.com.ifpe.startinfo.api.funcionario;
 
 import java.util.List;
 
@@ -44,7 +44,6 @@ public class FuncionarioController {
 
         Funcionario funcionario = funcionarioService.save(funcionarioNovo);
         return new ResponseEntity<Funcionario>(funcionario, HttpStatus.CREATED);
-
     }
 
     @GetMapping
@@ -72,5 +71,4 @@ public class FuncionarioController {
         funcionarioService.delete(id);
         return ResponseEntity.ok().build();
     }
-
 }
