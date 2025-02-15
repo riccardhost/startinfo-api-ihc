@@ -56,7 +56,6 @@ void deveAutenticarUsuarioComSucesso() {
     when(usuarioRepository.findByUsername("teste@teste.com")).thenReturn(Optional.of(usuario));
     when(passwordEncoder.matches("senha123", "senha123Criptografada")).thenReturn(true);
 
-    // Simula a autenticação
     UsernamePasswordAuthenticationToken authenticationToken =
             new UsernamePasswordAuthenticationToken("teste@teste.com", "senha123");
     when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
@@ -72,15 +71,15 @@ void deveAutenticarUsuarioComSucesso() {
 }
 
 
-   // @Test
-    //void deveFalharQuandoUsuarioNaoEncontrado() {
-     //   when(usuarioRepository.findByUsername("naoexiste@teste.com")).thenReturn(Optional.empty());
+//     @Test
+//   void deveFalharQuandoUsuarioNaoEncontrado() {
+//       when(usuarioRepository.findByUsername("naoexiste@teste.com")).thenReturn(Optional.empty());
 
-      //  Exception exception = assertThrows(UsernameNotFoundException.class, () -> {
-       //     usuarioService.authenticate("naoexiste@teste.com", "senha123");
-       // });
+//        Exception exception = assertThrows(UsernameNotFoundException.class, () -> {
+//            usuarioService.authenticate("naoexiste@teste.com", "senha123");
+//        });
 
-       // assertEquals("Usuário não encontrado: naoexiste@teste.com", exception.getMessage());
-       // verify(usuarioRepository, times(1)).findByUsername("naoexiste@teste.com");
-    //}
+//        assertEquals("Usuário não encontrado: naoexiste@teste.com", exception.getMessage());
+//        verify(usuarioRepository, times(1)).findByUsername("naoexiste@teste.com");
+//     }
 }

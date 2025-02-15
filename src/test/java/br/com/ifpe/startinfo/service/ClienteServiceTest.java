@@ -21,7 +21,7 @@ public class ClienteServiceTest {
     private ClienteRepository clienteRepository;
 
     @Mock
-    private UsuarioService usuarioService; // Adicionado Mock de UsuarioService
+    private UsuarioService usuarioService;
 
     @Mock
     private EmailService emailService;
@@ -49,7 +49,7 @@ public class ClienteServiceTest {
 
     @Test
     void deveSalvarClienteComSucesso() {
-        when(usuarioService.save(any(Usuario.class))).thenReturn(usuarioLogado); // Simula o salvamento do usuário
+        when(usuarioService.save(any(Usuario.class))).thenReturn(usuarioLogado);
         when(clienteRepository.save(any(Cliente.class))).thenReturn(cliente);
 
         Cliente clienteSalvo = clienteService.save(cliente, usuarioLogado);
@@ -58,7 +58,7 @@ public class ClienteServiceTest {
         assertEquals("João da Silva", clienteSalvo.getNomeCompleto());
         assertEquals("123.456.789-00", clienteSalvo.getCpf());
 
-        verify(usuarioService, times(1)).save(cliente.getUsuario()); // Verifica se o usuário foi salvo
+        verify(usuarioService, times(1)).save(cliente.getUsuario()); 
         verify(clienteRepository, times(1)).save(cliente);
         verify(emailService, times(1)).enviarEmailConfirmacaoCadastroCliente(cliente);
     }
